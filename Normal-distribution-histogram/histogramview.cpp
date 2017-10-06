@@ -142,7 +142,7 @@ QRegion HistogramView::itemRegion(QModelIndex index)
   QRegion region;
   if(index.column() == 1)   //第二列
     {
-      region = MRegionList[index.row()];    //得到点击到的当前行号对应的男生数值区域
+      region = MRegionList[index.row()];
     }
   return region;
 }
