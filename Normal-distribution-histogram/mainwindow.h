@@ -8,6 +8,12 @@
 #include <QMenuBar>
 #include <QTableView>
 #include <QString>
+#include <QFileDialog>
+#include <QDebug>
+#include "QSplitter"
+#include "QFile"
+#include "QtCore"
+#include "QMessageBox"
 
 #include "histogramview.h"
 
@@ -23,14 +29,24 @@ public:
   //设置显示视图
   void setupView();
 
+protected:
+  void timerEvent(QTimerEvent *event);//定时器事件
+
 private:
   QStandardItemModel *model;      //界面模型
   QStandardItem *data1;
+  QStandardItem *data2;//小球数据存放
   QTableView *table;    //表格视图
   QSplitter *splitter;      //界面的分割布局
   QSplitter *splitter1;
+//  QString fileName;//读取数据文件名
+  int theTimerId;
+
 
   HistogramView *histogram;
+
+private slots:
+  void timerUpDate();
 
 };
 
